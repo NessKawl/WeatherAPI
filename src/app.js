@@ -3,6 +3,16 @@ const climaRoutes = require('./routes/climaRoutes')
 const cidadeRoutes = require('./routes/cidadeRoutes')
 const estadoRoutes = require('./routes/estadoRoutes')
 
+const sequelize = require('./config/db')
+
+sequelize.authenticate()
+    .then((res) => {
+        console.log('Conectado a database com sucesso!')
+    }).catch((err) => {
+        console.error('Erro ao conectar a database!', err)
+    });
+
+
 const cors = require("cors");
 
 const app = express()

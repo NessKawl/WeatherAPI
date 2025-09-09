@@ -5,7 +5,9 @@ const apiKey = process.env.API_KEY;
 
 const getClima = async (req, res) => {
 
-    const { city } = req.query;
+    // const { city } = req.query;
+    const city = 'São Paulo';
+
     if (!city) return res.status(400).json({ error: "Cidade é obrigatória" });
 
     await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`).then(response => {
